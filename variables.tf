@@ -40,6 +40,20 @@ variable "destination" {
   sensitive   = false
 }
 
+variable "enable_encryption" {
+  type        = bool
+  description = ""
+  default     = false
+  sensitive   = false
+}
+
+variable "encryption_key_type" {
+  type        = string
+  description = ""
+  default     = "AWS_OWNED_CMK"
+  sensitive   = false
+}
+
 variable "env" {
   type        = string
   description = "The target environment for the stack - could be a tier or account level reference"
