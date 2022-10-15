@@ -1,6 +1,11 @@
 resource "aws_kinesis_firehose_delivery_stream" "this" {
   name        = "${local.stack}-${var.kinesis_purpose}-kinesis-firehose-delivery-stream"
   destination = var.destination
+  
+  server_side_encryption {
+    enabled = var.enable_encryption 
+    key_type = var.encryption_key_type
+  }
 
   s3_configuration {
     role_arn           = var.role_arn
